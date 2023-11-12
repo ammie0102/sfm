@@ -1,0 +1,91 @@
+customerTable
+1. customerID //primary key, varchar(20)
+2. customerFirstName
+3. customerLastName
+4. customerEmailAdress
+5. customerPassword
+6. customerContactNumber
+
+customerAddressTable
+1. customerAddressID //primary key, varchar(20)
+2. customerID //foreign key, varchar(20)
+3. customerFullName
+4. customerContactNumber
+5. customerStreet
+6. customerBarangay
+7. customerCity
+8. customerProvince
+9. customerZipCode
+10. customerNotes
+11. customerAddressLabel
+12. customerAddressDefault
+13. userRoleID //foreign key, varchar(20)
+
+foodMenuTable
+1. foodMenuID //primary key, varchar(20)
+2. foodMenuName
+3. foodMenuDescription
+4. foodMenuCategory
+6. foodMenuImage
+
+foodMenuPriceTable
+1. foodMenuPriceID //primary key, varchar(20)
+2. foodMenuID //foreign key, varchar(20)
+3. foodMenuPrice
+4. foodMenuCutType
+
+customerOrderTable
+1. customerOrderID //primary key, varchar(20)
+2. customerID //foreign key, varchar(20)
+3. customerAddressID //foreign key, varchar(20)
+4. customerOrderDate
+5. customerOrderStatus
+6. customerOrderTotalPrice
+7. customerOrderPaymentMethod
+8. customerOrderPaymentStatus
+9. deliveryPersonTable //foreign key, varchar(20)
+
+customerOrderItemTable
+1. customerOrderItemID //primary key, varchar(20)
+2. customerOrderID //foreign key, varchar(20)
+3. foodMenuID //foreign key, varchar(20)
+4. foodMenuPriceTable //foreign key, varchar(20)
+5. customerOrderItemQuantity
+6. customerOrderItemTotalPrice
+
+userRoleTable
+1. userRoleID //primary key, varchar(20)
+2. userRoleName
+
+adminTable
+1. adminID //primary key, varchar(20)
+2. adminFirstName
+3. adminLastName
+4. adminEmailAdress
+5. adminPassword
+6. adminContactNumber
+7. userRoleID //foreign key, varchar(20)
+
+
+deliveryPersonTable
+1. deliveryPersonID //primary key, varchar(20)
+2. deliveryPersonFirstName
+3. deliveryPersonLastName
+4. deliveryPersonEmailAdress
+5. deliveryPersonPassword
+6. deliveryPersonContactNumber
+7. userRoleID //foreign key, varchar(20)
+
+
+cartTable
+1. cartID // primary key, varchar(20)
+2. customerID // foreign key, varchar(20)
+3. foodMenuID // foreign key, varchar(20)
+4. foodMenuPriceID // foreign key, varchar(20)
+5. quantity INT
+
+
+
+
+
+
