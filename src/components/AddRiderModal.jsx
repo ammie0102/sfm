@@ -25,7 +25,7 @@ const AddRiderModal = ({ showModal, setShowModal, setReload }) => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         console.log(rider);
-        const response = await fetch("https://santafetaguktukan.online/rider/add", {
+        const response = await fetch("https://santafetaguktukan.online/api/rider/add", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -40,7 +40,7 @@ const AddRiderModal = ({ showModal, setShowModal, setReload }) => {
 
     useEffect(() => {
         const getBranches = async () => {
-            const response = await fetch("https://santafetaguktukan.online/branch");
+            const response = await fetch("https://santafetaguktukan.online/api/branch");
             const data = await response.json();
             setBranches(data);
         };

@@ -23,7 +23,7 @@ const Orders = () => {
 
     useEffect(() => {
         const getOrders = async () => {
-            const response = await fetch("https://santafetaguktukan.online/order/", {
+            const response = await fetch("https://santafetaguktukan.online/api/order/", {
                 method: "GET",
                 headers: {
                     "Content-Type": "application/json",

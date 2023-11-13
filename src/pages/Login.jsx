@@ -29,7 +29,7 @@ const Login = () => {
       };
 
       const customerResponse = await fetch(
-        "https://santafetaguktukan.online/customer/login",
+        "https://santafetaguktukan.online/api/customer/login",
         {
           method: "POST",
           headers: {
@@ -60,7 +60,7 @@ const Login = () => {
           adminPassword: customerPassword,
         };
 
-        const adminResponse = await fetch("https://santafetaguktukan.online/admin/login", {
+        const adminResponse = await fetch("https://santafetaguktukan.online/api/admin/login", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",

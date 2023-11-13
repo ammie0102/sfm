@@ -65,7 +65,7 @@ const AddFoodModal = ({ showModal, setShowModal, setReload }) => {
         // };
         // console.log(foodData);
 
-        const response = fetch("https://santafetaguktukan.online/food/add", {
+        const response = fetch("https://santafetaguktukan.online/api/food/add", {
             method: "POST",
 
             body: formData,
@@ -79,7 +79,7 @@ const AddFoodModal = ({ showModal, setShowModal, setReload }) => {
                 foodMenuCutType: price.foodMenuCutType,
             };
             console.log(priceData);
-            const response = fetch("https://santafetaguktukan.online/food/price/add", {
+            const response = fetch("https://santafetaguktukan.online/api/food/price/add", {
                 headers: {
                     "Content-Type": "application/json",
                 },

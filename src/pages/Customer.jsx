@@ -68,10 +68,10 @@ const Customer = () => {
     useEffect(() => {
         //
         const fetchData = async () => {
-            let apiUrl = "https://santafetaguktukan.online/customer";
+            let apiUrl = "https://santafetaguktukan.online/api/customer";
 
             if (search) {
-                apiUrl = `https://santafetaguktukan.online/customer/search/${search}`;
+                apiUrl = `https://santafetaguktukan.online/api/customer/search/${search}`;
             }
 
             const response = await fetch(apiUrl);
