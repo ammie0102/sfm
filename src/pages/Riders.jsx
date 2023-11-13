@@ -66,7 +66,7 @@ const Riders = () => {
 
     useEffect(() => {
         const getRiders = async () => {
-            const response = await fetch("http://localhost:7722/rider", {
+            const response = await fetch("https://santafetaguktukan.online/rider", {
                 method: "GET",
                 headers: {
                     "Content-Type": "application/json",
@@ -78,7 +78,7 @@ const Riders = () => {
         getRiders();
         setReload(false);
         const getBranch = async () => {
-            const response = await fetch("http://localhost:7722/branch", {
+            const response = await fetch("https://santafetaguktukan.online/branch", {
                 method: "GET",
                 headers: {
                     "Content-Type": "application/json",

@@ -39,7 +39,7 @@ const FoodModal = ({ showModal, setShowModal, selectedFood, foodPrices }) => {
             });
 
             if (confirmed.isConfirmed) {
-                const response = await fetch("http://localhost:7722/cart/add", {
+                const response = await fetch("https://santafetaguktukan.online/cart/add", {
                     method: "POST",
                     headers: {
                         "Content-Type": "application/json",

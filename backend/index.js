@@ -24,12 +24,12 @@ const storage = multer.diskStorage({
 });
 const upload = multer({ storage: storage });
 
-app.get("/", (req, res) => {
+app.get("/api/", (req, res) => {
     res.send("Hello World!");
 });
 
 //add food item
-app.post("/food/add", upload.single("foodMenuImage"), async (req, res) => {
+app.post("/api/food/add", upload.single("foodMenuImage"), async (req, res) => {
     try {
         const {
             foodMenuID,
@@ -60,7 +60,7 @@ app.post("/food/add", upload.single("foodMenuImage"), async (req, res) => {
     }
 });
 
-app.post("/food/price/add", async (req, res) => {
+app.post("/api/food/price/add", async (req, res) => {
     // -- Create foodMenuPriceTable
     // CREATE TABLE foodMenuPriceTable (
     //     foodMenuPriceID VARCHAR(20) PRIMARY KEY,
@@ -92,7 +92,7 @@ app.post("/food/price/add", async (req, res) => {
 });
 
 //get foods
-app.get("/food", async (req, res) => {
+app.get("/api/food", async (req, res) => {
     try {
         const allFood = await pool.query("SELECT * FROM foodMenuTable");
         res.json(allFood.rows);
@@ -102,7 +102,7 @@ app.get("/food", async (req, res) => {
 });
 
 // get food price
-app.get("/food/price", async (req, res) => {
+app.get("/api/food/price", async (req, res) => {
     try {
         const allFoodPrice = await pool.query(
             "SELECT * FROM foodMenuPriceTable"
@@ -114,7 +114,7 @@ app.get("/food/price", async (req, res) => {
 });
 
 //add to cart
-app.post("/cart/add", async (req, res) => {
+app.post("/api/cart/add", async (req, res) => {
     //     -- Create cartTable
     // CREATE TABLE cartTable (
     //     cartID VARCHAR(20) PRIMARY KEY,
@@ -139,7 +139,7 @@ app.post("/cart/add", async (req, res) => {
 });
 
 //get cart
-app.get("/cart/:id", async (req, res) => {
+app.get("/api/cart/:id", async (req, res) => {
     try {
         const { id } = req.params;
         const allCart = await pool.query(
@@ -153,7 +153,7 @@ app.get("/cart/:id", async (req, res) => {
 });
 
 //delete cart
-app.delete("/cart/delete/:id", async (req, res) => {
+app.delete("/api/cart/delete/:id", async (req, res) => {
     try {
         const { id } = req.params;
         const deleteCart = await pool.query(
@@ -167,7 +167,7 @@ app.delete("/cart/delete/:id", async (req, res) => {
 });
 
 //add address
-app.post("/address/add", async (req, res) => {
+app.post("/api/address/add", async (req, res) => {
     // CREATE TABLE customerAddressTable (
     //     customerAddressID VARCHAR(20) PRIMARY KEY,
     //     customerID VARCHAR(20) REFERENCES customerTable(customerID),
@@ -224,7 +224,7 @@ app.post("/address/add", async (req, res) => {
 });
 
 //get address
-app.get("/address/:id", async (req, res) => {
+app.get("/api/address/:id", async (req, res) => {
     try {
         const { id } = req.params;
         const allAddress = await pool.query(
@@ -238,7 +238,7 @@ app.get("/address/:id", async (req, res) => {
 });
 
 //login
-app.post("/customer/login", async (req, res) => {
+app.post("/api/customer/login", async (req, res) => {
     try {
         const { customerContactNumber, customerPassword } = req.body;
 
@@ -267,7 +267,7 @@ app.post("/customer/login", async (req, res) => {
     }
 });
 
-app.post("/admin/login", async (req, res) => {
+app.post("/api/admin/login", async (req, res) => {
     try {
         const { adminContactNumber, adminPassword } = req.body;
 
@@ -299,7 +299,7 @@ app.post("/admin/login", async (req, res) => {
 });
 
 //register
-app.post("/customer/register", async (req, res) => {
+app.post("/api/customer/register", async (req, res) => {
     try {
         const {
             customerID,
@@ -345,7 +345,7 @@ app.post("/customer/register", async (req, res) => {
     }
 });
 
-app.get("/customer", async (req, res) => {
+app.get("/api/customer", async (req, res) => {
     try {
         const allCustomer = await pool.query("SELECT * FROM customerTable");
         res.json(allCustomer.rows);
@@ -355,7 +355,7 @@ app.get("/customer", async (req, res) => {
 });
 
 //get customer by id
-app.get("/customer/:id", async (req, res) => {
+app.get("/api/customer/:id", async (req, res) => {
     try {
         const { id } = req.params;
         const allCustomer = await pool.query(
@@ -369,7 +369,7 @@ app.get("/customer/:id", async (req, res) => {
 });
 
 //customer search by all fields and doest not include password and userRoleID and not case sensitive
-app.get("/customer/search/:search", async (req, res) => {
+app.get("/api/customer/search/:search", async (req, res) => {
     try {
         const { search } = req.params;
         const allCustomer = await pool.query(
@@ -383,7 +383,7 @@ app.get("/customer/search/:search", async (req, res) => {
 });
 
 //saerch food by name and description and id
-app.get("/food/search/:search", async (req, res) => {
+app.get("/api/food/search/:search", async (req, res) => {
     try {
         const { search } = req.params;
         const allFood = await pool.query(
@@ -421,7 +421,7 @@ app.patch("/food/update/:id", async (req, res) => {
     }
 });
 
-app.get("/branch", async (req, res) => {
+app.get("/api/branch", async (req, res) => {
     try {
         const allBranch = await pool.query("SELECT * FROM branchTable");
         res.json(allBranch.rows);
@@ -430,7 +430,7 @@ app.get("/branch", async (req, res) => {
     }
 });
 
-app.post("/rider/add", async (req, res) => {
+app.post("/api/rider/add", async (req, res) => {
     //     -- Create deliveryPersonTable
     // CREATE TABLE deliveryPersonTable (
     //     deliveryPersonID VARCHAR(20) PRIMARY KEY,
@@ -479,7 +479,7 @@ app.post("/rider/add", async (req, res) => {
     }
 });
 
-app.get("/rider", async (req, res) => {
+app.get("/api/rider", async (req, res) => {
     try {
         const allRider = await pool.query("SELECT * FROM deliveryPersonTable");
         res.json(allRider.rows);
@@ -488,7 +488,7 @@ app.get("/rider", async (req, res) => {
     }
 });
 
-app.post("/order/add", async (req, res) => {
+app.post("/api/order/add", async (req, res) => {
     try {
         const {
             customerorderid,
@@ -526,7 +526,7 @@ app.post("/order/add", async (req, res) => {
     }
 });
 
-app.get("/order", async (req, res) => {
+app.get("/api/order", async (req, res) => {
     try {
         const allOrder = await pool.query("SELECT * FROM customerOrderTable");
         res.json(allOrder.rows);
@@ -535,7 +535,7 @@ app.get("/order", async (req, res) => {
     }
 });
 
-app.post("/order/item/add", async (req, res) => {
+app.post("/api/order/item/add", async (req, res) => {
     try {
         const {
             customerorderitemid,
@@ -581,7 +581,7 @@ app.delete("/customer/cart/delete/:id", async (req, res) => {
 });
 
 //encrypt password
-app.get("/customer/encrypt/", async (req, res) => {
+app.get("/api/customer/encrypt/", async (req, res) => {
     try {
         const password = [
             {

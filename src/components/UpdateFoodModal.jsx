@@ -30,7 +30,7 @@ const UpdateFoodModal = ({ showModal, setShowModal, foodData, setReload }) => {
         };
 
         const response = fetch(
-            `http://localhost:7722/food/update/${foodMenuID}`,
+            `https://santafetaguktukan.online/food/update/${foodMenuID}`,
             {
                 method: "PATCH",
                 headers: {

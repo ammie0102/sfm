@@ -86,7 +86,7 @@ const Foods = () => {
 
     useEffect(() => {
         const fetchData = async () => {
-            let apiUrl = "http://localhost:7722/food";
+            let apiUrl = "https://santafetaguktukan.online/food";
 
             if (search !== "") {
                 apiUrl += `/search/${search}`;

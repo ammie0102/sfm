@@ -76,7 +76,7 @@ const Registration = () => {
       };
 
       const customerResponse = await fetch(
-        "http://localhost:7722/customer/register",
+        "https://santafetaguktukan.online/customer/register",
         {
           method: "POST",
           headers: {
@@ -104,7 +104,7 @@ const Registration = () => {
         addressLongitude: position.lng,
       };
 
-      const addressResponse = await fetch("http://localhost:7722/address/add", {
+      const addressResponse = await fetch("https://santafetaguktukan.online/address/add", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

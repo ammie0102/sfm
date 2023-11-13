@@ -65,7 +65,7 @@ const Address = ({}) => {
         });
 
         if (confirmed.isConfirmed) {
-            const response = await fetch("http://localhost:7722/address/add", {
+            const response = await fetch("https://santafetaguktukan.online/address/add", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
